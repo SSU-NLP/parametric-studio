@@ -98,41 +98,9 @@ Windows). CI (`.github/workflows/studio-build.yml`) builds both platforms via `w
 
 ## Architecture
 
-```mermaid
-flowchart LR
-    User([User])
-
-    subgraph UI["Desktop Studio UI"]
-        direction TB
-        V1["Visualization View<br/><i>Activation / Attention / Logits / Tensors / Output</i>"]
-        V2["Parameter Region View<br/><i>Importance Map / Region Comparison</i>"]
-        V3["Parameter Control View<br/><i>Knob / Freeze / Isolation / Evaluation</i>"]
-        V4["Chat &amp; Code View<br/><i>Prompt Input / Generated Response</i>"]
-    end
-
-    subgraph K["Backend Kernel"]
-        direction TB
-        K1[Model Loader] --> K2[LLM Inference] --> K3[Parameter Importance Score] --> K4[Activation / Attention / Logits / Output] --> K5[Region Intervention] --> K6[Evaluation Engine]
-        RS[(Region Store)]
-        IC[(Importance Cache)]
-        TQ["Task Queue &amp; Scheduling"]
-    end
-
-    subgraph RT["Runtime &amp; Storage"]
-        direction TB
-        HF["Hugging Face Hub"]
-        GPU["Cloud GPU (via SSH)"]
-        LM["Local Machine (MPS / CUDA)"]
-        DS["Datasets / Benchmarks"]
-    end
-
-    User --> UI
-    UI <-->|WebSocket| K
-    K <-->|"HTTPS / SSH / Local"| RT
-    K3 -.- IC
-    K5 -.- RS
-    K6 -.- TQ
-```
+<p align="center">
+  <img src="docs/architecture.png" alt="System Architecture" width="900">
+</p>
 
 Three tiers, connected over one WebSocket:
 
@@ -194,7 +162,11 @@ attribution.
 
 ## Acknowledgments
 
-This work was supported by **[VESSL AI](https://vessl.ai)** (https://vessl.ai), which provided the
-cloud GPU compute used for Parametric Studio's model analysis and remote-kernel workloads.
+This work was supported by **[VESSL AI](https://vessl.ai)**, which provided the cloud GPU compute
+used for Parametric Studio's model analysis and remote-kernel workloads.
+
+<p align="center">
+  <img src="docs/vessl-ai.png" alt="VESSL AI" height="44">
+</p>
 
 Developed by **NLP Lab, Soongsil University**.
