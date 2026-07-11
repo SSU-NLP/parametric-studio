@@ -403,7 +403,7 @@ function SpotSummary({ grid, modules }: { grid: number[][]; modules: string[] })
     </div>
   )
 }
-// mean of per-token [L,M] grids → one cumulative [L,M] grid (the "누적 활성화도").
+// mean of per-token [L,M] grids → one cumulative [L,M] grid (the cumulative activation map).
 function meanFrames(frames: number[][][]): number[][] {
   if (!frames.length) return []
   const L = frames[0].length, M = frames[0][0]?.length ?? 0
@@ -688,7 +688,7 @@ export default function App() {
   const [regionImpMax, setRegionImpMax] = useState<Record<string, number>>({})
   // Tensor inspector (layer → tensor → values). Selection + last-fetched window, keyed by model.
   type TensorView = { name: string; shape: number[]; dtype: string; source: string; signed: boolean; rows_total: number; cols_total: number; r0: number; c0: number; values: number[][]; flattened: boolean; stats: { min: number; max: number; mean: number; std: number; absmax: number } }
-  // value source: 'weights' (원본 모델 θ) | 'importance' (실시간 |g×w|) | a saved region name (저장 영역)
+  // value source: 'weights' (original model θ) | 'importance' (live |g×w|) | a saved region name
   const [tvSource, setTvSource] = useState<Record<string, string>>({})
   const [tvSel, setTvSel] = useState<Record<string, { layer: string; tensor: string | null }>>({})
   const [tvData, setTvData] = useState<Record<string, TensorView>>({})
@@ -1960,9 +1960,9 @@ export default function App() {
           subtitle="Pick a value source, a layer, then a tensor. weights = the model's parameters θ (signed). importance = the live |g×w| from the last spot/prompt. region = a saved spot's importance (0 outside the spot). Big tensors show a 48×48 window; stats are over the full tensor."
           right={<select value={src} onChange={(e) => pickSource(e.target.value)} title="which values to show at each parameter position"
             style={{ fontSize: 11, background: 'var(--bg-2)', color: 'var(--text-1)', border: '1px solid var(--line-strong)', borderRadius: 10, padding: '2px 6px', maxWidth: 220 }}>
-            <option value="weights">원본 모델 · weights θ</option>
-            <option value="importance">실시간 Parameter Importance</option>
-            {(d.regions ?? []).length > 0 && <optgroup label="저장된 영역 (region)">
+            <option value="weights">Original model · weights θ</option>
+            <option value="importance">Live Parameter Importance</option>
+            {(d.regions ?? []).length > 0 && <optgroup label="Saved regions">
               {(d.regions ?? []).map((r) => <option key={r.name} value={r.name}>{r.name}</option>)}
             </optgroup>}
           </select>}>

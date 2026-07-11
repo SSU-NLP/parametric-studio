@@ -56,16 +56,16 @@ pip install -r requirements-studio.txt
 (the folder that contains `parametic_studio/`), using the Python where you installed the deps:
 
 ```bash
-# 백엔드 실행
+# start the backend kernel
 cd parametric-studio
 python -m parametic_studio.api
-# 예: conda 파이썬이면  /opt/conda/bin/python -m parametic_studio.api
+# e.g. with a conda python:  /opt/conda/bin/python -m parametic_studio.api
 ```
 
 **3. Start the web frontend** — in a **second terminal**:
 
 ```bash
-# 웹 실행
+# start the web frontend
 cd parametric-studio/studio_web
 npm install
 npm run dev -- --host 0.0.0.0

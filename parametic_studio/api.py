@@ -1082,7 +1082,7 @@ def serve(model_id, host="127.0.0.1", port=8000):
 
     from parametic_studio.kernel.model_session import ModelSession
 
-    # windows: ppid는 부모 사망 후에도 불변 — 고아 감시는 posix 전용, RunEvent::Exit kill이 주 방어선
+    # windows: ppid stays unchanged after the parent dies — orphan-watch is posix only; the app's RunEvent::Exit kill is the primary defense
     if os.environ.get("PARAMETIC_STUDIO_PARENT_WATCH") == "1" and os.name == "posix":
         _watch_parent()
 
