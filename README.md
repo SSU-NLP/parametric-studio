@@ -26,11 +26,16 @@ on first run, installs the Python dependencies it needs.
 
 ## Install (end user)
 
+<p align="center">
+  <a href="https://github.com/SSU-NLP/parametric-studio/releases/download/v0.1.0/Parametric-Studio_0.1.0_aarch64.dmg"><b>⬇&nbsp; Download for macOS (Apple Silicon) — v0.1.0</b></a>
+  &nbsp;·&nbsp;
+  <a href="https://github.com/SSU-NLP/parametric-studio/releases">all releases</a>
+</p>
+
 1. Install **Python 3.10+** and make sure it is on your `PATH`.
-2. Download the installer for your platform from the repository's **Releases** (or the
-   `studio-build` CI run artifacts):
-   - **Windows** — `Parametric Studio_*_x64-setup.exe`
-   - **macOS** (Apple Silicon) — `Parametric Studio_*.dmg`
+2. Download the installer from the [**Releases**](https://github.com/SSU-NLP/parametric-studio/releases) page:
+   - **macOS** (Apple Silicon) — [`Parametric-Studio_0.1.0_aarch64.dmg`](https://github.com/SSU-NLP/parametric-studio/releases/download/v0.1.0/Parametric-Studio_0.1.0_aarch64.dmg)
+   - **Windows** — build from source (see below), or from the `studio-build` CI artifacts.
 3. Run it. On **first launch** the app checks for its kernel dependencies. If they are missing, a
    **setup panel** appears: pick a detected Python (or Browse to one) and click **Install
    dependencies** — it runs `pip install -r requirements-studio.txt` and restarts the kernel
