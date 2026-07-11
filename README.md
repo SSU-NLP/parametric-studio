@@ -140,6 +140,20 @@ requirements-studio.txt   Kernel dependencies
 Kim et al., *Exploring the Coding Spot: Understanding Parametric Contributions to LLM Coding
 Performance.*
 
+## Citation
+
+If you use Parametric Studio in your research, please cite:
+
+```bibtex
+@misc{kim2026parametricstudio,
+  title  = {Parametric Studio: Interactive Parameter-Space Exploration for Understanding Large Language Models},
+  author = {Kim, Doyun and Cho, Seonghyeon and Kim, Dongjun and Jang, Giyoon and Lee, Sihyeon and Kim Chanwoo and Kum, jiwoo and Park, Chanjun},
+  year   = {2026},
+  note   = {Manuscript under review},
+  url    = {https://github.com/SSU-NLP/parametric-studio}
+}
+```
+
 ## License
 
 Licensed under [**CC BY 4.0**](LICENSE) (Creative Commons Attribution 4.0 International) — you are
