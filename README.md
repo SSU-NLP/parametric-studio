@@ -166,7 +166,7 @@ This work was supported by **[VESSL AI](https://vessl.ai)**, which provided the 
 used for Parametric Studio's model analysis and remote-kernel workloads.
 
 <p align="center">
-  <img src="docs/vessl-ai.png" alt="VESSL AI" height="44">
+  <img src="docs/vessl-ai.png" alt="VESSL AI" width="320">
 </p>
 
 Developed by **NLP Lab, Soongsil University**.
