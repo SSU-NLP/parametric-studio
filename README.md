@@ -1,4 +1,8 @@
-# Parametric Studio
+<p align="center">
+  <img src="studio_web/public/logo.png" alt="Parametric Studio" width="120">
+</p>
+
+<h1 align="center">Parametric Studio</h1>
 
 An interactive desktop app for exploring the **Coding Spot** — the small top-k% of a language
 model's parameters (ranked by `|gradient × parameter|` importance on code) that carry its coding
@@ -49,6 +53,23 @@ npm run tauri build
 Output: `studio_web/src-tauri/target/release/bundle/` (`.dmg`/`.app` on macOS, `.exe`/`.msi` on
 Windows). CI (`.github/workflows/studio-build.yml`) builds both platforms via `workflow_dispatch`.
 
+## Architecture
+
+<p align="center">
+  <img src="docs/architecture.png" alt="System Architecture" width="900">
+</p>
+
+Three tiers, connected over one WebSocket:
+
+- **Desktop Studio UI** (Tauri + React) — Visualization (activation / attention / logits / tensors /
+  output), Parameter Region (importance map, region comparison), Parameter Control (knob, freeze,
+  isolation, evaluation), and Chat & Code views.
+- **Backend Kernel** (Python) — Model Loader → LLM Inference → Parameter Importance Score →
+  activation/attention/logits/output → Region Intervention → Evaluation Engine, backed by a Region
+  Store, an Importance Cache, and a task scheduler.
+- **Runtime & Storage** — compute on the local machine (MPS / CUDA), a Cloud GPU over SSH, or the
+  Hugging Face Hub for weights; regions, importance caches, and dataset benchmarks are persisted.
+
 ## How it works
 
 Parametric Studio is a **Tauri v2** shell (Rust + React/TypeScript) that owns a Python **kernel**:
@@ -75,3 +96,14 @@ requirements-studio.txt   Kernel dependencies
 
 Kim et al., *Exploring the Coding Spot: Understanding Parametric Contributions to LLM Coding
 Performance.*
+
+## Acknowledgments
+
+This work was supported by **[VESSL AI](https://vessl.ai)**, which provided the cloud GPU compute
+used for Parametric Studio's model analysis and remote-kernel workloads.
+
+<p align="center">
+  <img src="docs/vessl-ai.png" alt="VESSL AI" height="44">
+</p>
+
+Developed by **NLP Lab, Soongsil University**.
