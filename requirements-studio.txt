@@ -1,0 +1,9 @@
+# parametic-studio kernel dependencies (desktop app spawns the kernel with your system python).
+# Install: pip install -r requirements-studio.txt
+# torch: use the build matching your machine (mps는 기본 wheel로 동작; cuda는 해당 index 사용)
+torch>=2.3
+transformers>=4.45
+datasets>=2.19    # HF dataset loading (load_hf_dataset WS op); remote/local kernel python must have it
+fastapi>=0.110
+uvicorn>=0.29
+websockets>=12
