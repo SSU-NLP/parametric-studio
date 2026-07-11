@@ -179,7 +179,7 @@ If you use Parametric Studio in your research, please cite:
 ```bibtex
 @misc{kim2026parametricstudio,
   title  = {Parametric Studio: Interactive Parameter-Space Exploration for Understanding Large Language Models},
-  author = {Kim, Doyun and Cho, Seonghyeon and Kim, Dongjun and Jang, Giyoon and Lee, Sihyeon and Kim Chanwoo and Kum, jiwoo and Park, Chanjun},
+  author = {Kim, Doyun and Cho, Seonghyeon and Kim, Dongjun and Jang, Giyoon and Lee, Sihyeon and Kim, Chanwoo and Kum, Jiwoo and Park, Chanjun},
   year   = {2026},
   note   = {Manuscript under review},
   url    = {https://github.com/SSU-NLP/parametric-studio}
