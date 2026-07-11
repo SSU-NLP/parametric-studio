@@ -99,9 +99,9 @@ Performance.*
 
 ## License
 
-Licensed under [**CC BY-NC 4.0**](LICENSE) (Creative Commons Attribution-NonCommercial 4.0
-International) — you may share and adapt this work for **non-commercial** purposes with attribution.
-**Commercial use is not permitted.**
+Licensed under [**CC BY 4.0**](LICENSE) (Creative Commons Attribution 4.0 International) — you are
+free to share and adapt this work for any purpose, including commercially, with appropriate
+attribution.
 
 ## Acknowledgments
 
