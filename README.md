@@ -97,6 +97,12 @@ requirements-studio.txt   Kernel dependencies
 Kim et al., *Exploring the Coding Spot: Understanding Parametric Contributions to LLM Coding
 Performance.*
 
+## License
+
+Licensed under [**CC BY-NC 4.0**](LICENSE) (Creative Commons Attribution-NonCommercial 4.0
+International) — you may share and adapt this work for **non-commercial** purposes with attribution.
+**Commercial use is not permitted.**
+
 ## Acknowledgments
 
 This work was supported by **[VESSL AI](https://vessl.ai)**, which provided the cloud GPU compute
