@@ -40,6 +40,49 @@ on first run, installs the Python dependencies it needs.
 > optional — the kernel auto-selects MPS (Apple), CUDA, or CPU. macOS builds are unsigned: right-click
 > → **Open** the first time.
 
+## Run from source (development)
+
+The app is **two processes**: the Python **kernel** (WebSocket API) and the **web** frontend. This
+is the fastest way to try it without building an installer.
+
+**1. Install the kernel dependencies** (once):
+
+```bash
+cd parametric-studio
+pip install -r requirements-studio.txt
+```
+
+**2. Start the backend kernel** — serves the API on `127.0.0.1:8000`. Run this from the repo root
+(the folder that contains `parametic_studio/`), using the Python where you installed the deps:
+
+```bash
+# 백엔드 실행
+cd parametric-studio
+python -m parametic_studio.api
+# 예: conda 파이썬이면  /opt/conda/bin/python -m parametic_studio.api
+```
+
+**3. Start the web frontend** — in a **second terminal**:
+
+```bash
+# 웹 실행
+cd parametric-studio/studio_web
+npm install
+npm run dev -- --host 0.0.0.0
+```
+
+Open the URL it prints (default **http://localhost:5173**). The frontend auto-connects to the kernel
+at `ws://127.0.0.1:8000/ws` — when the status shows connected, use **+ Model** in the UI to load a
+model and start exploring.
+
+> Prefer the **native desktop window** instead of a browser? Skip steps 2–3 and run one command —
+> it spawns the kernel and opens the app together:
+> ```bash
+> cd parametric-studio/studio_web
+> npm install
+> npm run tauri dev
+> ```
+
 ## Build from source
 
 Requires **Node 18+**, **Rust**, and the [Tauri v2 prerequisites](https://v2.tauri.app/start/prerequisites/).
