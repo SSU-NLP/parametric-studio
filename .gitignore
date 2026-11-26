@@ -1,0 +1,33 @@
+# python
+__pycache__/
+*.py[cod]
+
+# env / secrets
+.env
+.venv
+
+# node / frontend build
+studio_web/node_modules/
+studio_web/dist/
+
+# tauri build
+studio_web/src-tauri/target/
+studio_web/src-tauri/gen/schemas/
+# generated at build by scripts/bundle-kernel.mjs — the kernel is copied in here
+studio_web/src-tauri/resources/
+
+# packaged installers
+dist_windows/
+
+# model / tensor artifacts
+*.pt
+*.bin
+*.safetensors
+
+# agent tooling (do not commit)
+.claude/
+.agents/
+skills-lock.json
+
+# OS
+.DS_Store
